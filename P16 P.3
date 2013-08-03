@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  signed char checksum = -1;
+	char ch;
+
+/* 这里答案中用的EOF，但我暂时还不知道
+** 使用EOF的时候怎样停止程序以输出checksum，
+** 因此使用了\n，题中要求连回车符一并输出，
+** 我这里暂时没能实现，EOF还存疑
+*/
+	while( (ch = getchar()) != '\n' )
+	{
+		putchar(ch);
+		checksum += ch;
+	}
+
+	printf("%d\n", checksum);
+
+	return EXIT_SUCCESS;
+}
