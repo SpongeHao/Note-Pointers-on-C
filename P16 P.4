@@ -27,3 +27,43 @@ int main(void)
 
 	return EXIT_SUCCESS;
 }
+
+答案中用strlen()函数来实现的，比我的更好，尤其是对于处理很长的字符串，效率会更好。
+
+代码如下
+
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX_LEN 1001 /* Buffer size for longest line */
+int
+main( void )
+{
+	char input[ MAX_LEN ];
+	int len;
+	char longest[ MAX_LEN ];
+	int longest_len;
+/*
+** Initialize length of the longest line found so far.
+*/
+	longest_len = –1;
+/*
+** Read input lines, one by one.
+*/
+	while( gets( input ) != NULL ){
+/*
+** Get length of this line. If it is longer than the previous
+** longest line, save this line.
+*/
+	len = strlen( input );
+	if( len > longest_len ){
+	longest_len = len;
+	strcpy( longest, input );
+}
+}
+/*
+** If we saved any line at all from the input, print it now.
+*/
+	if( longest_len >= 0 )
+	puts( longest );
+	return EXIT_SUCCESS;
+}
