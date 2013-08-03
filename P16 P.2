@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+void main()
+{
+  char ch;
+	int n = 1;
+
+	while( (ch = getchar()) != EOF)
+	{
+		printf("%d. ", n);
+		putchar(ch);						//进入下面的循环后不输出本字符
+		while( (ch = getchar()) != '\n')	//不是回车的时候
+		{
+			putchar(ch);
+		}
+		printf("\n");
+		n += 1;								//行数加一
+	}
+}
+
+与书中答案有区别，书中运用了哨兵来处理是否到达回车位置，我的办法相对来说笨一些。
