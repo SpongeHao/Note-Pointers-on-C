@@ -8,13 +8,13 @@ void main()
 	while( (ch = getchar()) != EOF)
 	{
 		printf("%d. ", n);
-		putchar(ch);						//进入下面的循环后不输出本字符
+		putchar(ch);				//进入下面的循环后不输出本字符
 		while( (ch = getchar()) != '\n')	//不是回车的时候
 		{
 			putchar(ch);
 		}
 		printf("\n");
-		n += 1;								//行数加一
+		n += 1;					//行数加一
 	}
 }
 
