@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int MaxL;
+	char ch;
+
+	while( (ch = getchar()) != EOF )
+	{
+		int Long = 1;
+
+		while( (ch = getchar()) != '\n' )
+		{
+			Long += 1;
+		}
+
+		if(Long > MaxL)
+		{
+			MaxL = Long;
+		}
+		
+		printf("Long = %d\n", Long);
+	}
+
+	printf("MaxLong = %d", MaxL);
+
+	return EXIT_SUCCESS;
+}
