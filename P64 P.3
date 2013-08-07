@@ -13,6 +13,8 @@ main(void)
 	printf("insert 3 side of triangle\n");
 	scanf("%d %d %d", &a, &b, &c);
 	
+	// 答案中先对三边进行了排序，这样可以降低代码量，值得借鉴
+	
 	if (!judge(a, b, c))
 	{
 		printf("Error Tri\n");
