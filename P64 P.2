@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void
+main(void)
+{
+  int m, n, i;
+	
+	for ( n = 1; n <= 100; n = n + 2 ) //这里n每次加2，因为能被2整除的肯定不是质数
+	{
+		m = sqrt(n);
+		
+		for ( i = 2; i <= m; i++ )
+		{
+			if ( n % i != 0 )
+			{
+				printf("%d is ZhiShu\n", n);
+				break;
+			}
+		}
+	}
+}
