@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#define LINE_SIZE 129
+
+void
+main(void)
+{
+  char ch[LINE_SIZE], nch[LINE_SIZE];
+	
+	if ( gets(ch) != NULL )    //输入中每回车一次算一个字符串
+	{
+		while ( gets(nch) !=NULL)
+		{
+			if ( strcmp( ch, nch ) != 0 )
+			{
+				strcpy( ch, nch );
+			}
+			else
+			{
+				printf( "%s\n", ch );
+			}
+		}
+	}
+}
