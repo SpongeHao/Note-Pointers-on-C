@@ -1,0 +1,77 @@
+我的代码如下，还不能运行，应该是函数调用时出现了问题，暂时还没学习到函数部分。
+思路是对的，但是不如答案里来的清晰，将答案中的代码附在后面。
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int
+main( void )
+{
+	char const *find_char( char const *source,
+		char const *chars );
+
+	char const *source, *chars, *target = NULL;
+	
+	source = "ABCDEF";
+	chars = "XRCQEF";
+
+	target = find_char( char const *source,
+		char const *chars, char const *target );
+
+	return 1;
+}
+
+char const *find_char( char const *source,
+		char const *chars, char const *target )
+{
+	while ( *source != '\0' )
+	{
+		while ( *chars != '\0' )
+		{
+			if ( *source == *chars )
+			{
+				target = source;
+				return target;
+			}
+			else
+			{
+				chars += 1;
+			}
+		}
+		source += 1;
+	}
+	return target;
+}
+
+
+正确答案
+
+/*
+** Find the first occurrence in ’str’ of any of the characters in ’chars’ and
+** return a pointer to that location. If none are found, or if ’str’ or ’chars’
+** are NULL pointers, a NULL pointer is returned.
+*/
+#define NULL 0
+char *
+find_char( char const *str, char const *chars )
+{
+	char *cp;
+	/*
+	** Check arguments for NULL
+	*/
+	if( str != NULL && chars != NULL ){   //注意这里对字符串进行判断，用if
+	/*
+	** Look at ’str’ one character at a time.
+		*/
+		for( ; *str != ’\0’; str++ ){   //这里答案使用了for循环
+		/*
+		** Look through ’chars’ one at a time for a
+		** match with *str.
+			*/
+			for( cp = chars; *cp != ’\0’; cp++ )
+				if( *str == *cp )
+					return str;
+							}
+	}
+	return NULL;
+}
