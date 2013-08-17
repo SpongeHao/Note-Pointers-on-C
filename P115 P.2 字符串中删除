@@ -1,0 +1,53 @@
+/*
+** If the string "substr" appears in "str", delete it.
+*/
+#define NULL 0 /* null pointer */
+#define NUL ’\0’ /* null byte */
+#define TRUE 1
+#define FALSE 0
+/*
+** See if the substring beginning at ’str’ matches the string ’want’. If
+** so, return a pointer to the first character in ’str’ after the match.
+*/
+char *
+match( char *str, char *want )
+{
+/*
+** Keep looking while there are more characters in ’want’. We fall out
+** of the loop if we get a match.
+** 这里是从str的某个位置进行匹配，对str位置的控制在调用函数的外部通过while实现
+*/
+	while( *want != NUL )
+		if( *str++ != *want++ )
+			return NULL;
+		return str;
+}
+int
+del_substr( char *str, char const *substr )
+{
+	char *next;
+	/*
+	** Look through the string for the first occurrence of the substring.
+	** 这里实现对str位置的控制，并匹配是否有需要删除的字串
+	*/
+	while( *str != NUL ){
+		next = match( str, substr );
+		if( next != NULL )
+			break;
+		str++;
+	}
+	/*
+	** If we reached the end of the string, then the substring was not
+	** found.
+	*/
+	if( *str == NUL )
+		return FALSE;
+	/*
+	** Delete the substring by copying the bytes after it over the bytes of
+	** the substring itself.
+	** 通过while语句实现字串的删减
+	*/
+	while( *str++ = *next++ )
+		;
+	return TRUE;
+}
